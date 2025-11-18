@@ -389,5 +389,63 @@ print("ค่าต่ำสุด:", findLowestValue(node1))  # Output: 2
 
 
 ==============
+ลบ node
+node delete
 
+
+# สร้าง Node class
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+def traverseAndPrint(head):
+    currentNode = head
+    while currentNode:
+        print(currentNode.data, end=" -> ")
+        currentNode = currentNode.next
+    print("null")
+
+# ทดสอบ
+node1 = Node(7)
+node2 = Node(11)
+node3 = Node(3)
+node4 = Node(2)
+node5 = Node(9)
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+
+def deleteSpecificNode(head, nodeToDelete):
+    # กรณีลบ head
+    if head == nodeToDelete:
+        return head.next
+    
+    # หา node ก่อนหน้า
+    currentNode = head
+    while currentNode.next and currentNode.next != nodeToDelete:
+        currentNode = currentNode.next
+    
+    # ถ้าไม่เจอ node ที่จะลบ
+    if currentNode.next is None:
+        return head
+    
+    # ข้าม node ที่จะลบ
+    currentNode.next = currentNode.next.next
+    return head
+
+# ทดสอบ
+print("ก่อนลบ:")
+traverseAndPrint(node1)
+
+node1 = deleteSpecificNode(node1, node4)  # ลบ node4 (ค่า 2)
+
+print("หลังลบ:")
+traverseAndPrint(node1)
+
+
+===============
 
