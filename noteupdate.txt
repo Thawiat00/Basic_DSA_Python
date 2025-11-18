@@ -181,3 +181,34 @@ browser_history.push('youtube.com')
 print("หน้าปัจจุบัน:", browser_history.peek())
 print("กดปุ่ม Back:", browser_history.pop())
 print("หน้าปัจจุบัน:", browser_history.peek())
+
+
+------------
+
+
+🚶 Part 3: Queues (คิว - เข้าก่อนออกก่อน)
+3.1 Queue แบบง่ายด้วย List
+python# สร้าง Queue
+queue = []
+
+# Enqueue (เพิ่มคนเข้าคิว)
+queue.append('A')
+queue.append('B')
+queue.append('C')
+print("Queue:", queue)
+
+# Peek (ดูคนหน้าสุด)
+frontElement = queue[0]
+print("Peek:", frontElement)
+
+# Dequeue (เอาคนหน้าสุดออก)
+poppedElement = queue.pop(0)
+print("Dequeue:", poppedElement)
+print("Queue หลัง Dequeue:", queue)
+
+# ตรวจสอบว่าง
+isEmpty = not bool(queue)
+print("Queue ว่างไหม:", isEmpty)
+
+# นับจำนวน
+print("ขนาด:", len(queue))
