@@ -507,3 +507,55 @@ traverseAndPrint(node1)
 ----------------
 
 
+📊 Part 5: Hash Tables
+🔑 Hash Table คืออะไร?
+Hash Table เป็นโครงสร้างข้อมูลที่รวดเร็วมาก! ใช้ hash function เพื่อหาตำแหน่งที่เก็บข้อมูลได้ทันที
+ข้อดี:
+
+ค้นหา: O(1) เฉลี่ย
+เพิ่ม: O(1) เฉลี่ย
+ลบ: O(1) เฉลี่ย
+
+🏗️ สร้าง Hash Table เบื้องต้น
+
+---
+hash table basic
+
+# Step 1: สร้าง list ว่าง
+my_list = [None] * 10
+
+# Step 2: สร้าง hash function
+def hash_function(value):
+    sum_of_chars = 0
+    for char in value:
+        sum_of_chars += ord(char)  # Unicode ของตัวอักษร
+    return sum_of_chars % 10       # คืนค่า 0-9
+
+# ทดสอบ
+print("'Bob' มี hash code:", hash_function('Bob'))  # Output: 5
+
+----------
+
+➕ เพิ่มข้อมูลลง Hash Table
+
+
+# Step 1: สร้าง list ว่าง
+my_list = [None] * 10
+
+# Step 2: สร้าง hash function
+def hash_function(value):
+    sum_of_chars = 0
+    for char in value:
+        sum_of_chars += ord(char)  # Unicode ของตัวอักษร
+    return sum_of_chars % 10       # คืนค่า 0-9
+
+def add(name):
+    index = hash_function(name)
+    my_list[index] = name
+
+add('Bob')
+add('Pete')
+add('Jones')
+add('Lisa')
+
+print(my_list)

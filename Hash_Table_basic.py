@@ -1,0 +1,12 @@
+# Step 1: สร้าง list ว่าง
+my_list = [None] * 10
+
+# Step 2: สร้าง hash function
+def hash_function(value):
+    sum_of_chars = 0
+    for char in value:
+        sum_of_chars += ord(char)  # Unicode ของตัวอักษร
+    return sum_of_chars % 10       # คืนค่า 0-9
+
+# ทดสอบ
+print("'Bob' มี hash code:", hash_function('Bob'))  # Output: 5
