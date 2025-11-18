@@ -1,7 +1,4 @@
-Lists - fandametal
 
-list_basic
-# สร้าง list ว่าง
 x = []
 print("List ว่าง:", x)
 
@@ -12,6 +9,3 @@ print("List ตัวเลข:", y)
 # List ที่มีหลายประเภทข้อมูล
 z = [1, "สวัสดี", 3.14, True]
 print("List แบบผสม:", z)
-
------------------
-
