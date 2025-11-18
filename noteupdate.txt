@@ -559,3 +559,117 @@ add('Jones')
 add('Lisa')
 
 print(my_list)
+
+
+------------
+
+
+hash table search
+
+# Step 1: สร้าง list ว่าง
+my_list = [None] * 10
+
+# Step 2: สร้าง hash function
+def hash_function(value):
+    sum_of_chars = 0
+    for char in value:
+        sum_of_chars += ord(char)  # Unicode ของตัวอักษร
+    return sum_of_chars % 10       # คืนค่า 0-9
+
+
+def add(name):
+    index = hash_function(name)
+    my_list[index] = name
+
+add('Bob')
+add('Pete')
+add('Jones')
+add('Lisa')
+
+print(my_list)
+
+
+def contains(name):
+    index = hash_function(name)
+    return my_list[index] == name
+
+
+
+print("'Pete' อยู่ใน Hash Table:", contains('Pete'))  # True
+
+---------------
+
+⚠️ แก้ไข Collision (การชนกัน)
+
+# Step 1: สร้าง list ว่าง
+#my_list = [None] * 10
+
+# Step 2: สร้าง hash function
+def hash_function(value):
+    sum_of_chars = 0
+    for char in value:
+        sum_of_chars += ord(char)  # Unicode ของตัวอักษร
+    return sum_of_chars % 10       # คืนค่า 0-9
+
+# ใช้ Chaining - แต่ละ bucket เป็น list
+my_list = [[] for _ in range(10)]
+
+def add(name):
+    index = hash_function(name)
+    my_list[index].append(name)
+
+def contains(name):
+    index = hash_function(name)
+    return name in my_list[index]
+
+# เพิ่มข้อมูล
+add('Bob')
+add('Pete')
+add('Jones')
+add('Lisa')
+add('Stuart')  # จะ collision กับ Lisa
+
+print(my_list)
+
+---------------
+
+
+🌳 Part 6: Trees (ต้นไม้)
+🌲 Tree คืออะไร?
+Tree เป็นโครงสร้างข้อมูลที่แตกแขนงได้ (ไม่ใช่แบบเส้นตรงเหมือน Array/Linked List)
+ส่วนประกอบ:
+
+Root = โหนดบนสุด
+Parent = โหนดแม่
+Child = โหนดลูก
+Leaf = โหนดที่ไม่มีลูก
+
+-----------
+
+📦 Binary Tree (ต้นไม้ทวิภาค)
+แต่ละโหนดมีลูกได้ สูงสุด 2 โหนด (left และ right)
+
+
+TreeNode_basic_Binary_Tree.py
+
+class TreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+# สร้าง tree
+root = TreeNode('R')
+root.left = TreeNode('A')
+root.right = TreeNode('B')
+root.left.left = TreeNode('C')
+root.left.right = TreeNode('D')
+
+#       R
+#      / \
+#     A   B
+#    / \
+#   C   D
+
+----------------------
+

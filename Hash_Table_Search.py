@@ -1,0 +1,30 @@
+# Step 1: สร้าง list ว่าง
+my_list = [None] * 10
+
+# Step 2: สร้าง hash function
+def hash_function(value):
+    sum_of_chars = 0
+    for char in value:
+        sum_of_chars += ord(char)  # Unicode ของตัวอักษร
+    return sum_of_chars % 10       # คืนค่า 0-9
+
+
+def add(name):
+    index = hash_function(name)
+    my_list[index] = name
+
+add('Bob')
+add('Pete')
+add('Jones')
+add('Lisa')
+
+print(my_list)
+
+
+def contains(name):
+    index = hash_function(name)
+    return my_list[index] == name
+
+
+
+print("'Pete' อยู่ใน Hash Table:", contains('Pete'))  # True
