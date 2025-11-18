@@ -38,3 +38,4 @@ print("Dequeue:", myQueue.dequeue())
 print("Queue หลัง Dequeue:", myQueue.queue)
 print("ว่างไหม:", myQueue.isEmpty())
 print("ขนาด:", myQueue.size())
+
